@@ -13,6 +13,10 @@ export default {
         mobile: "640px",
         tablet: "768px",
         laptop: "1536px",
+      },
+      fontFamily: {
+        Roboto: ["Roboto"],
+        Poppins: ["Poppins"],
       }
     },
   },

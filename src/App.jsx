@@ -1,9 +1,10 @@
-import Home from './pages/Home'
+import { Route } from './routes/route'
+import { DarkModeProvider } from './context/DarkMode'
 const App = () => {
   return (
-    <>
-    <Home />
-    </>
+    <DarkModeProvider>
+    <Route />
+    </DarkModeProvider>
   )
 }
 
