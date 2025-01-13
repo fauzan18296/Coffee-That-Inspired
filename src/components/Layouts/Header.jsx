@@ -6,6 +6,7 @@ import { DarkModeContext } from '../../context/DarkMode'
 import { useContext } from 'react'
 import { useMenuBtn } from '../../hooks/useMenuBtn'
 import { Sun, Moon, ShoppingCart } from 'react-feather'
+import Logo from '../../assets/Img/Brand_Logo/latte-art.avif'
 
 const Header = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
@@ -14,7 +15,7 @@ const Header = () => {
     <header className={`flex p-3 w-screen justify-around items-center shadow-xl fixed z-50 ${darkMode ? 'bg-neutral-900 text-white' : 'bg-white'}`}>
       <div className=" flex gap-5 items-center">
         <a className='flex gap-2 items-center' href="/">
-          <Image image='/src/assets/Img/Brand_Logo/latte-art.avif' alt="Logo" classname="size-12 rounded-md object-cover" />
+          <Image image={Logo} alt="Logo" classname="size-12 rounded-md object-cover" />
           <h1 className='text-primary text-2xl font-bold max-mobile:text-xl'><span className={`${darkMode ? 'bg-neutral-900 text-white' : 'bg-white'}`}>Coffee</span><span className='dark:text-primary'>_Inspired</span></h1>
         </a>
        </div>
