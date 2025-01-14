@@ -2,8 +2,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from '../pages/Home'
 import About from '../pages/About'
 
-export const Route = () => {
-  const Routes = createBrowserRouter([
+export const Router = () => {
+  const Route = createBrowserRouter([
   {
     path: "/",
     element: <Home />
@@ -14,6 +14,6 @@ export const Route = () => {
     }
   ])
     return (
-      <RouterProvider router={Routes} />
+      <RouterProvider router={Route} />
   )
 }

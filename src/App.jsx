@@ -1,9 +1,9 @@
-import { Route } from './routes/route'
+import { Router } from './routes/router'
 import { DarkModeProvider } from './context/DarkMode'
 const App = () => {
   return (
     <DarkModeProvider>
-    <Route />
+    <Router />
     </DarkModeProvider>
   )
 }
