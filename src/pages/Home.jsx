@@ -5,7 +5,7 @@ import { useContext } from 'react'
 const Home = () => {
     const { darkMode } = useContext(DarkModeContext)
   return (
-    <div className={`${darkMode ? 'bg-neutral-900 text-white' : 'bg-white'}`}>
+    <div className={`${ darkMode && 'bg-neutral-900 text-white' }`}>
       <Header />
       <HeroSection />
     </div>

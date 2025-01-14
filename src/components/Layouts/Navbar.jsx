@@ -8,8 +8,8 @@ const Navbar = ({children}) => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
   return (
     <>
-      <nav className={`md:text-lg md:font-semibold ${darkMode ? 'bg-neutral-900 text-white' : 'bg-white'}
-      `}>
+      <nav className={`md:text-lg md:font-semibold ${darkMode && 'bg-neutral-900 text-white' }
+      font-Poppins font-bold`}>
           {children}
       </nav >
       <div className='hidden md:flex md:static gap-2 justify-center'>

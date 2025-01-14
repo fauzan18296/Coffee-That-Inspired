@@ -5,6 +5,7 @@ import Button from '../Ui/Button'
 import { DarkModeContext } from '../../context/DarkMode'
 import { useContext } from 'react'
 import { useMenuBtn } from '../../hooks/useMenuBtn'
+import { Link } from 'react-router'
 import { Sun, Moon, ShoppingCart } from 'react-feather'
 import Logo from '../../assets/Img/Brand_Logo/latte-art.avif'
 
@@ -12,23 +13,23 @@ const Header = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
    const { isOpen, toggleBtn } = useMenuBtn()
   return (
-    <header className={`flex p-3 w-screen justify-around items-center shadow-xl fixed z-50 ${darkMode ? 'bg-neutral-900 text-white' : 'bg-white'}`}>
+    <header className={`flex p-3 w-screen justify-around items-center shadow-xl fixed z-50 ${darkMode && 'bg-neutral-900 text-white' || 'bg-white'}`}>
       <div className=" flex gap-5 items-center">
-        <a className='flex gap-2 items-center' href="/">
+        <Link className='flex gap-2 items-center' to="/">
           <Image image={Logo} alt="Logo" classname="size-12 rounded-md object-cover" />
-          <h1 className='text-primary text-2xl font-bold max-mobile:text-xl'><span className={`${darkMode ? 'bg-neutral-900 text-white' : 'bg-white'}`}>Coffee</span><span className='dark:text-primary'>_Inspired</span></h1>
-        </a>
+          <h1 className='text-primary text-2xl font-extrabold max-mobile:text-xl font-Poppins'><span className={`${darkMode && 'bg-neutral-900 text-white'}`}>Coffee</span><span className='dark:text-primary'>_Inspired</span></h1>
+        </Link>
        </div>
       <Navbar>
         <div className={`md:flex  md:static md:mx-auto gap-5  md:items-center md:justify-center container absolute max-mobile:h-screen
         max-mobile:top-full
         transition-transition duration-100 delay-75 ease-in-out
       ${!isOpen ? "max-mobile:-left-full" : "max-mobile:left-0"} 
-      ${darkMode ? 'max-mobile:bg-neutral-900 text-white' : 'max-mobile:bg-white'}
+      ${darkMode && 'max-mobile:bg-neutral-900 text-white' || 'max-mobile:bg-white' }
        max-mobile:w-3/6  max-mobile:text-center max-mobile:flex max-mobile:flex-col max-mobile:justify-evenly max-mobile:text-lg max-mobile:shadow-md`}>
-         <a href="/about"><span className="text-primary">About</span></a>
-              <a href="/products" className="hover:text-primary">Product</a>
-          <a href="/contact" className="hover:text-primary">Contact</a>
+         <Link to="/about"><span className="text-primary">About</span></Link>
+              <Link to="/products" className="hover:text-primary">Product</Link>
+          <Link to="/contact" className="hover:text-primary">Contact</Link>
       <div className='flex md:hidden md:static flex-row-reverse gap-2 justify-center'>
       {/* Icon Tampilan Mobile */}
       <Button classname='hover:text-primary '>
