@@ -1,18 +1,13 @@
 import AboutImg from '../../assets/Img/AboutSectionImage/aboutImg.jpg'
 import Image from './Image'
-import CoffeeProduct from '../../services/CoffeeProduct.service'
-import { useState, useEffect, useContext } from 'react'
+import { useContext } from 'react'
 import { DarkModeContext } from '../../context/DarkMode'
+import { useCoffeeProducts } from '../../hooks/useCoffeeProducts'
 
 const AboutSection = () => {
-  const [coffeeProducts, setCoffeeProducts] = useState([])
   const { darkMode } = useContext(DarkModeContext)
-  useEffect(() => {
-    CoffeeProduct((res) => {
-      setCoffeeProducts(res.data)
-      console.log(res.data)
-    })
-  },[])
+  const { coffeeProducts } = useCoffeeProducts()
+ 
   return (
     <div className=' flex justify-around mx-auto  items-center min-h-screen flex-col'>
     <div className="container flex justify-center mx-auto  items-center min-h-screen">
@@ -26,7 +21,7 @@ const AboutSection = () => {
       </div>
        <div className='flex items-center flex-col'>
         <h1 className='text-3xl max-mobile:text-xl text-primary font-Poppins font-bold tracking-wider'>About Products☕</h1>
-        <div className='mt-5 md:grid grid-cols-3 max-mobile:flex max-mobile:justify-center max-mobile:items-center max-mobile:flex-col  gap-14 mx-4 '>
+        <div className=' md:grid grid-cols-3 max-mobile:flex max-mobile:justify-center max-mobile:items-center max-mobile:flex-col  gap-14 mx-4 my-8'>
         { coffeeProducts.map((product) => {
           return (
             <div key={product.id}>

@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from '../pages/Home'
 import About from '../pages/About'
+import Products from '../pages/Products'
 
 export const Router = () => {
   const Route = createBrowserRouter([
@@ -11,7 +12,11 @@ export const Router = () => {
   {
     path: "/about",
     element: <About />
-    }
+    },
+  {
+    path: "/products",
+    element: <Products />
+    },
   ])
     return (
       <RouterProvider router={Route} />
