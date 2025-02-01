@@ -33,7 +33,7 @@ const Header = () => {
       <div className='flex md:hidden md:static flex-row-reverse gap-2 justify-center'>
       {/* Icon Tampilan Mobile */}
       <Button classname='hover:text-primary '>
-        <ShoppingCart  className='size-5'  />
+        <Link to='/carts'><ShoppingCart  className='size-5'  /></Link>
       </Button>
       <Button classname='hover:text-primary' onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? <Sun className='size-5' /> : <Moon className='size-5' /> }

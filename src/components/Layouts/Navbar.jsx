@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Button from '../Ui/Button'
 import { DarkModeContext } from '../../context/DarkMode'
 import { useContext } from 'react'
+import { Link } from 'react-router'
 
 const Navbar = ({children}) => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
@@ -20,7 +21,7 @@ const Navbar = ({children}) => {
           }
           </Button> 
         <Button classname='hover:text-primary'>
-          <ShoppingCart />
+          <Link to='/carts'><ShoppingCart /></Link>
         </Button>
           {/* Akhir Icon Tampilan Desktop */}
           </div>
