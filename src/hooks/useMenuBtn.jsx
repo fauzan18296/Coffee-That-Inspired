@@ -6,5 +6,11 @@ export const useMenuBtn = () => {
     setIsOpen(!isOpen)
   }
 
-  return { isOpen, toggleBtn }
+  const handleOutAreaNav = (event) => {
+    if (!event.target.closest('#hamburger-menu') && !event.target.closest('#menuNav')) {
+      setIsOpen(false)
+    }
+  }
+
+  return { isOpen, toggleBtn, handleOutAreaNav }
 }
