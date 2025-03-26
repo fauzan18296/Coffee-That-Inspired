@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
+import { memo } from 'react'
 
-const CartProducts = (props) => {
+const CartProducts = memo((props) => {
   const { cart, coffeeProducts } = props
   return (
     <div className='w-5/6'>
@@ -30,11 +31,12 @@ const CartProducts = (props) => {
               </table>
               </div>
   )
-}
+})
 
 CartProducts.propTypes = {
   cart: PropTypes.arrayOf(PropTypes.shape({})),
   coffeeProducts: PropTypes.arrayOf(PropTypes.shape({})),
 }
+CartProducts.displayName = 'MyCartProducts'
 
 export default CartProducts

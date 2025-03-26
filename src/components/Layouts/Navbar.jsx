@@ -4,8 +4,9 @@ import Button from '../Ui/Button'
 import { DarkModeContext } from '../../context/DarkMode'
 import { useContext } from 'react'
 import { Link } from 'react-router'
+import { memo } from 'react'
 
-const Navbar = ({children}) => {
+const Navbar = memo(({children}) => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
   return (
     <>
@@ -27,10 +28,11 @@ const Navbar = ({children}) => {
           </div>
     </>
   )
-}
+})
 
 Navbar.propTypes = {
   children: PropTypes.node.isRequired
 }
+Navbar.displayName = 'MyNavbar'
 
 export default Navbar

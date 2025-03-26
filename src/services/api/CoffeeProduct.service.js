@@ -1,8 +1,8 @@
 import axios from 'axios'
-const CoffeeProduct = (callback) => {
-  axios.get("https://fake-coffee-api.vercel.app/api")
+const CoffeeProduct = (callback, signal, typeMenu) => {
+  axios.get(`https://api.sampleapis.com/coffee/${ typeMenu}`, { signal })
     .then((res) => {
-    callback(res)
+    callback(res.data)
     })
     .catch((err) => {
     callback(err.message)

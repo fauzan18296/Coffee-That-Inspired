@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 
 export const useMenuBtn = () => {
   const [isOpen, setIsOpen] = useState(false)
-  const toggleBtn = () => {
+  const toggleBtn = useCallback(() => {
     setIsOpen(!isOpen)
-  }
+  }, [isOpen])
 
   const handleOutAreaNav = (event) => {
     if (!event.target.closest('#hamburger-menu') && !event.target.closest('#menuNav')) {

@@ -1,16 +1,17 @@
 import PropTypes from 'prop-types'
+import { memo } from 'react'
 
-const Button = ({ classname, onClick = () => {}, type, children }) => {
+const Button = memo(({ classname, onClick = () => { }, type, children }) => {
   return (
     <button
       className={classname}
       onClick={onClick}
       type={type}
     >
-    {children}
+      {children}
     </button>
   )
-}
+});
 
 Button.propTypes = {
   classname: PropTypes.string,
@@ -18,5 +19,6 @@ Button.propTypes = {
   type: PropTypes.string,
   children: PropTypes.node
 }
+Button.displayName = 'MyButton'
 
 export default Button

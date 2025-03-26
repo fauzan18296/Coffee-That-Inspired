@@ -6,8 +6,8 @@ import { useCoffeeProducts } from '../../hooks/useCoffeeProducts'
 
 const AboutSection = () => {
   const { darkMode } = useContext(DarkModeContext)
-  const { coffeeProducts } = useCoffeeProducts()
- 
+  const { coffeeHotProducts } = useCoffeeProducts()
+
   return (
     <div className=' flex justify-around mx-auto  items-center min-h-screen flex-col'>
     <div className="container flex justify-center mx-auto  items-center min-h-screen">
@@ -22,16 +22,17 @@ const AboutSection = () => {
        <div className='flex items-center flex-col'>
         <h1 className='text-3xl max-mobile:text-xl text-primary font-Poppins font-bold tracking-wider'>About Products☕</h1>
         <div className=' md:grid grid-cols-3 max-mobile:flex max-mobile:justify-center max-mobile:items-center max-mobile:flex-col  gap-14 mx-4 my-8'>
-        { coffeeProducts.map((product) => {
+          {
+              [...coffeeHotProducts]?.map((product, index) => {
           return (
-            <div key={product.id}>
+            <div key={index}>
               <div className={`flex  rounded-lg shadow-lg size-full justify-center items-center flex-col ${darkMode && 'bg-primary text-white' || 'bg-white'}`}>
-                <Image classname="  max-mobile:mx-auto" image={product.image_url} alt="Coffee Image" />
-                <h1 className={`text-2xl max-mobile:text-xl font-bold text-primary tracking-wide ${darkMode && 'text-white'}`}>{product.name}</h1>
+                <Image classname=" max-mobile:mx-auto size-2/4 rounded-md" image={product.image} alt="Coffee Image" />
+                <h1 className={`text-2xl max-mobile:text-xl font-bold text-primary tracking-wide my-2 ${darkMode && 'text-white'}`}>{product.title}</h1>
                 <p className='text-xl mx-4 max-mobile:text-base tracking-wide'>{product.description}</p>
                 </div>
                 </div>
-          ) 
+          )
         })}
           </div>
       </div>
