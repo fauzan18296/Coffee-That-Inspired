@@ -4,6 +4,7 @@ import { useContext} from 'react'
 import { DarkModeContext } from '../../context/DarkMode'
 import { ShoppingCart } from 'react-feather'
 import Button from './Button'
+
 // import CartProducts from './CartProducts'
 import { useCarts } from '../../hooks/useCarts'
 
