@@ -4,14 +4,15 @@ import { useContext} from 'react'
 import { DarkModeContext } from '../../context/DarkMode'
 import { ShoppingCart } from 'react-feather'
 import Button from './Button'
+//TODO: Untuk Membuat Cart Product
+import { CartContext } from '../../context/CartContext'
 
-// import CartProducts from './CartProducts'
-import { useCarts } from '../../hooks/useCarts'
 
 const ProductsSection = () => {
   const { coffeeIceProducts } = useCoffeeProducts()
   const { darkMode } = useContext(DarkModeContext)
-  const { cart, handleAddToCart } = useCarts()
+  //NOTE: Cartnya masih belum jadi karena ada kendala pada pembuatan komponen nya
+  const { dispatch } = useContext(CartContext)
 
   return (
     <div className='flex justify-center  items-center flex-col min-h-screen w-full'>
@@ -21,9 +22,9 @@ const ProductsSection = () => {
           <div className='flex justify-center items-center text-xl'>
           <div className='grid grid-cols-3 gap-8 max-mobile:grid-cols-1 max-mobile:mx-6'>
               {
-            coffeeIceProducts.length > 0 && [...coffeeIceProducts].map((product, index) => {
+            coffeeIceProducts.length > 0 && [...coffeeIceProducts].map((product) => {
             return (
-              <div key={index}>
+              <div key={product.id}>
                 <div className={`${darkMode && "bg-primary text-white" || "bg-white"} rounded-md shadow-lg size-full`}>
                   <div className='text-center tracking-wide'>
                   <Image classname="size-2/4 mx-auto rounded-md pt-6" image={product.image} alt="Image Coffee" />
@@ -32,7 +33,11 @@ const ProductsSection = () => {
                     <div className='flex justify-evenly'>
                       <Button classname='bg-black text-white rounded-md p-2 my-3 font-bold text-xl max-mobile:text-base max-mobile:p-1 max-mobile:w-4/6 max-w-full w-8/12 cursor-pointer'>Buy Now!</Button>
                       <Button classname='hover:text-primary cursor-pointer'
-                        onClick={() => handleAddToCart(product.id)}><ShoppingCart className='size-7  max-mobile:size-6' /></Button>
+                        onClick={() => dispatch({
+                          type: 'ADD',
+                          payload: product
+                          })
+                        }><ShoppingCart className='size-7  max-mobile:size-6' /></Button>
                       </div>
                     </div>
                 </div>
@@ -40,13 +45,10 @@ const ProductsSection = () => {
             )
           })}
             </div>
-            {/* <CartProducts
-                cart={cart}
-                coffeeProducts={coffeeProducts} /> */}
         </div>
         </div>
-      </div>
-      </div>
+        </div>
+    </div>
   )
 }
 

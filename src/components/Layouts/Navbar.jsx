@@ -3,8 +3,9 @@ import PropTypes from 'prop-types'
 import Button from '../Ui/Button'
 import { DarkModeContext } from '../../context/DarkMode'
 import { useContext } from 'react'
-import { Link } from 'react-router'
 import { memo } from 'react'
+// import { useCartBtn } from '../../hooks/useCartBtn'
+import {Link} from 'react-router'
 
 const Navbar = memo(({children}) => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
@@ -18,11 +19,13 @@ const Navbar = memo(({children}) => {
         {/* Icon Tampilan Desktop */}
         <Button classname='hover:text-primary' onClick={() => setDarkMode(!darkMode)}> 
           {
-          darkMode ? <Sun /> : <Moon />
+          darkMode ? <Sun size={25} /> : <Moon size={25} />
           }
           </Button> 
-        <Button classname='hover:text-primary'>
-          <Link to='/carts'><ShoppingCart /></Link>
+        <Button type='button' classname='hover:text-primary'>
+          <Link to='/carts'>
+            <ShoppingCart size={25} />
+            </Link>
         </Button>
           {/* Akhir Icon Tampilan Desktop */}
           </div>

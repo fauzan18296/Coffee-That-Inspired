@@ -2,11 +2,12 @@ import axios from 'axios'
 const CoffeeProduct = (callback, signal, typeMenu) => {
   axios.get(`https://api.sampleapis.com/coffee/${ typeMenu}`, { signal })
     .then((res) => {
-    callback(res.data)
+   callback(res.data)
     })
     .catch((err) => {
-    callback(err.message)
+    console.log(err.message)
   })
 }
 
 export default CoffeeProduct
+

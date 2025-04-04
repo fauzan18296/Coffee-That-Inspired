@@ -23,7 +23,7 @@ const AboutSection = () => {
         <h1 className='text-3xl max-mobile:text-xl text-primary font-Poppins font-bold tracking-wider'>About Products☕</h1>
         <div className=' md:grid grid-cols-3 max-mobile:flex max-mobile:justify-center max-mobile:items-center max-mobile:flex-col  gap-14 mx-4 my-8'>
           {
-              [...coffeeHotProducts]?.map((product, index) => {
+              [...coffeeHotProducts].map((product, index) => {
           return (
             <div key={index}>
               <div className={`flex  rounded-lg shadow-lg size-full justify-center items-center flex-col ${darkMode && 'bg-primary text-white' || 'bg-white'}`}>

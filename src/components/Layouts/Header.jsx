@@ -8,16 +8,19 @@ import { useMenuBtn } from '../../hooks/useMenuBtn'
 import { Link } from 'react-router'
 import { Sun, Moon, ShoppingCart } from 'react-feather'
 import Logo from '../../assets/Img/Brand_Logo/latte-art.avif'
+// import { useCartBtn } from '../../hooks/useCartBtn'
 
 const Header = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
   const { isOpen, toggleBtn, handleOutAreaNav } = useMenuBtn()
+
   document.addEventListener("click", handleOutAreaNav)
   return (
     <header className={`flex p-3 w-screen justify-around items-center shadow-xl fixed z-50 ${darkMode && 'bg-neutral-900 text-white' || 'bg-white'}`}>
         <Button classname='md:hidden mx-2 text-primary' type='button' onClick={toggleBtn}>
-    <Menu id='hamburger-menu' size={20} /> 
+    <Menu id='hamburger-menu' size={22} /> 
       </Button>
+      
       <div className=" flex gap-5 items-center justify-center">
         <Link className='flex gap-2 items-center' to="/">
           <Image image={Logo} alt="Logo" classname="size-12 rounded-md object-cover" />
@@ -43,8 +46,8 @@ const Header = () => {
           </div>
         </div>
       </Navbar>
-      <Button classname='md:hidden max-mobile:mx-2 max-mobile:text-primary'>
-        <ShoppingCart size={20} />
+      <Button type='button' classname='md:hidden max-mobile:mx-2 max-mobile:text-primary'>
+        <ShoppingCart size={22} />
       </Button>
     </header>
   )
