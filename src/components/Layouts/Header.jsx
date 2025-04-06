@@ -7,17 +7,18 @@ import { useContext } from 'react'
 import { useMenuBtn } from '../../hooks/useMenuBtn'
 import { Link } from 'react-router'
 import { Sun, Moon, ShoppingCart } from 'react-feather'
+import { useTotalCart } from '../../hooks/useTotalCart'
 import Logo from '../../assets/Img/Brand_Logo/latte-art.avif'
-// import { useCartBtn } from '../../hooks/useCartBtn'
 
 const Header = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
   const { isOpen, toggleBtn, handleOutAreaNav } = useMenuBtn()
+  const { totalCart, cart } = useTotalCart()
 
   document.addEventListener("click", handleOutAreaNav)
   return (
     <header className={`flex p-3 w-screen justify-around items-center shadow-xl fixed z-50 ${darkMode && 'bg-neutral-900 text-white' || 'bg-white'}`}>
-        <Button classname='md:hidden mx-2 text-primary' type='button' onClick={toggleBtn}>
+      <Button classname={`md:hidden mx-2 ${darkMode ? 'text-white' : 'max-mobile:text-primary'}`} type='button' onClick={toggleBtn}>
     <Menu id='hamburger-menu' size={22} /> 
       </Button>
       
@@ -46,8 +47,11 @@ const Header = () => {
           </div>
         </div>
       </Navbar>
-      <Button type='button' classname='md:hidden max-mobile:mx-2 max-mobile:text-primary'>
-        <ShoppingCart size={22} />
+      <Button type='button' classname={`md:hidden max-mobile:mx-2 ${darkMode ? 'text-white' : 'max-mobile:text-primary'}`}>
+        <Link to="/carts">
+          <ShoppingCart size={22} />
+        <div className={`${cart == 0 ?'hidden' : 'bg-primary'  } text-white rounded-full text-sm text-bold shadow-md w-5 absolute ms-4 bottom-5`}>{totalCart}</div>
+        </Link>
       </Button>
     </header>
   )

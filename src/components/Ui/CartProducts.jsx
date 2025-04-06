@@ -1,12 +1,10 @@
 import { CartContext } from '../../context/CartContext'
 import { useCoffeeProducts } from '../../hooks/useCoffeeProducts'
-import { useEffect, useMemo, useContext } from 'react'
+import { useEffect, useContext } from 'react'
 
 const CartProducts = (() => {
-  const { cart }  = useContext(CartContext)
+  const { cart } = useContext(CartContext)
   const { coffeeIceProducts } = useCoffeeProducts()
-
-  const memoizedCart = useMemo(() => cart, [cart]);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
@@ -17,9 +15,9 @@ const CartProducts = (() => {
   }, [cart])
   
   return (
-         <div className="flex  items-center  w-full min-h-full flex-col">
+         <div className="flex justify-center  items-center  w-full min-h-screen flex-col">
               <h1 className='text-center text-primary font-Poppins text-4xl mb-5 font-semibold'>Cart</h1>
-            <table className='table table-auto border-spacing-5 border-separate  border border-black text-left '>
+            <table className='table table-auto border-spacing-x-10 border-separate max-mobile:border-spacing-x-2 border rounded-md border-black text-balance '>
               <thead>
                 <tr  className='text-lg'>
                 <th>Name</th>
@@ -30,7 +28,7 @@ const CartProducts = (() => {
         </thead>
         <tbody>
             { 
-          coffeeIceProducts.length > 0 && memoizedCart.map(item => {
+          coffeeIceProducts.length > 0 && cart.map(item => {
             const product = coffeeIceProducts.find(products => products.id == item.id)
             
                 return (

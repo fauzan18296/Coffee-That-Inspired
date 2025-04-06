@@ -6,10 +6,8 @@ const Carts = () => {
   return (
     <div>
       <Header />
-      <div className='flex justify-center items-center min-h-screen'>
         <CartProducts />
         </div>
-    </div>
   )
 }
 
