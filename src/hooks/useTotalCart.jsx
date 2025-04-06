@@ -8,14 +8,7 @@ export const useTotalCart = () => {
     return cart.reduce((acc, item) => acc + item.qty, 0)
   }, [cart])
   useEffect(() => {
-    let isMounted = true
-    if (isMounted) { 
       setTotalCart(totalItemInCart)
-    }
-    return () => {
-      isMounted = false
-      console.log('cleanUp state : ', isMounted)
-    }
    }, [totalItemInCart])
   
   return { totalCart, cart }
