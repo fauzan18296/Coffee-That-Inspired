@@ -13,7 +13,7 @@ import Logo from '../../assets/Img/Brand_Logo/latte-art.avif'
 const Header = () => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
   const { isOpen, toggleBtn, handleOutAreaNav } = useMenuBtn()
-  const { totalCart, cart } = useTotalCart()
+  const { totalItemInCart, cart } = useTotalCart()
 
   document.addEventListener("click", handleOutAreaNav)
   return (
@@ -50,7 +50,7 @@ const Header = () => {
       <Button type='button' classname={`md:hidden max-mobile:mx-2 ${darkMode ? 'text-white' : 'max-mobile:text-primary'}`}>
         <Link to="/carts">
           <ShoppingCart size={22} />
-        <div className={`${cart == 0 ?'hidden' : 'bg-primary'  } text-white rounded-full text-sm text-bold shadow-md w-5 absolute ms-4 bottom-5`}>{totalCart}</div>
+        <div className={`${cart == 0 ?'hidden' : 'bg-primary'  } text-white rounded-full text-sm text-bold shadow-md w-5 absolute ms-4 bottom-5`}>{totalItemInCart}</div>
         </Link>
       </Button>
     </header>

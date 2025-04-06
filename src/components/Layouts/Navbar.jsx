@@ -8,7 +8,7 @@ import { useTotalCart } from '../../hooks/useTotalCart'
 
 const Navbar = memo(({children}) => {
   const { darkMode, setDarkMode } = useContext(DarkModeContext)
-  const { totalCart, cart } = useTotalCart()
+  const { totalItemInCart, cart } = useTotalCart()
 
   return (
     <>
@@ -26,7 +26,7 @@ const Navbar = memo(({children}) => {
         <Button type='button' classname='hover:text-primary'>
           <Link to='/carts'>
             <ShoppingCart size={25} />
-            <div className={`${cart == 0 ?'hidden' : 'bg-primary'  } text-white rounded-full text-sm text-bold shadow-md w-5 absolute ms-4 bottom-5`}>{totalCart}</div>
+            <div className={`${cart == 0 ?'hidden' : 'bg-primary'  } text-white rounded-full text-sm text-bold shadow-md w-5 absolute ms-4 bottom-5`}>{totalItemInCart}</div>
             </Link>
         </Button>
           {/* Akhir Icon Tampilan Desktop */}
