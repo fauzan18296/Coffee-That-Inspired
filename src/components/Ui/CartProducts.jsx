@@ -9,6 +9,7 @@ const CartProducts = (() => {
   const { coffeeIceProducts } = useCoffeeProducts()
 
   useEffect(() => {
+    JSON.parse(localStorage.getItem('cart'))
     localStorage.setItem('cart', JSON.stringify(cart))
     return () => {
       localStorage.removeItem('cart')
