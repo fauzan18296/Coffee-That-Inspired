@@ -2,7 +2,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router'
 import Home from '../pages/Home'
 import About from '../pages/About'
 import Products from '../pages/Products'
-import Carts from '../pages/Carts'
+import Carts from '../pages/Cart/Carts'
+import Contact from '../pages/Contact'
 
 export const Router = () => {
   const Route = createBrowserRouter([
@@ -21,7 +22,11 @@ export const Router = () => {
     {
       path: '/carts',
       element: <Carts />
-  }
+    }, 
+    {
+      path: '/contact',
+      element: <Contact />
+    }
   ])
     return (
       <RouterProvider router={Route} />

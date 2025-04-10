@@ -1,5 +1,5 @@
-import Header from '../components/Layouts/Header'
-import CartProducts from '../components/Ui/CartProducts'
+import Header from '../../components/Layouts/Header'
+import CartProducts from '../../components/Ui/CartProducts'
 
 const Carts = () => {
   return (

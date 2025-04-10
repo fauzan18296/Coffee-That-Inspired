@@ -1,11 +1,10 @@
 import AboutImg from '../../assets/Img/AboutSectionImage/aboutImg.jpg'
 import Image from './Image'
-import { useContext } from 'react'
-import { DarkModeContext } from '../../context/DarkMode'
 import { useCoffeeProducts } from '../../hooks/useCoffeeProducts'
+import { CardHotCoffeeProducts } from '../Element/Mappings/CardHotCoffeeProducts'
 
 const AboutSection = () => {
-  const { darkMode } = useContext(DarkModeContext)
+
   const { coffeeHotProducts } = useCoffeeProducts()
 
   return (
@@ -26,11 +25,7 @@ const AboutSection = () => {
               [...coffeeHotProducts].map((product, index) => {
           return (
             <div key={index}>
-              <div className={`flex  rounded-lg shadow-lg size-full justify-center items-center flex-col ${darkMode && 'bg-primary text-white' || 'bg-white'}`}>
-                <Image classname=" max-mobile:mx-auto size-2/4 rounded-md pt-6" image={product.image} alt="Coffee Image" />
-                <h1 className={`text-2xl max-mobile:text-xl font-bold text-primary tracking-wide my-2 ${darkMode && 'text-white'}`}>{product.title}</h1>
-                <p className='text-xl mx-4 max-mobile:text-base tracking-wide'>{product.description}</p>
-                </div>
+              <CardHotCoffeeProducts product={product} />
                 </div>
           )
         })}
