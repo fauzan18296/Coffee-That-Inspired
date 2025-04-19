@@ -12,7 +12,7 @@ const ProductsSection = () => {
           <div className='flex justify-center items-center text-xl'>
           <div className='grid grid-cols-3 gap-8 max-mobile:grid-cols-1 max-mobile:mx-6'>
               {
-            coffeeIceProducts.length > 0 && [...coffeeIceProducts].map((product) => {
+            coffeeIceProducts.length > 0 && coffeeIceProducts.map((product) => {
             return (
               <div key={product.id}>
                 <CardIceCoffeeProducts product={product} />

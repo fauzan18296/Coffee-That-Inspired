@@ -4,7 +4,6 @@ import { useCoffeeProducts } from '../../hooks/useCoffeeProducts'
 import { CardHotCoffeeProducts } from '../Element/Mappings/CardHotCoffeeProducts'
 
 const AboutSection = () => {
-
   const { coffeeHotProducts } = useCoffeeProducts()
 
   return (
@@ -22,9 +21,9 @@ const AboutSection = () => {
         <h1 className='text-3xl max-mobile:text-xl text-primary font-Poppins font-bold tracking-wider'>About Products☕</h1>
         <div className=' md:grid grid-cols-3 max-mobile:flex max-mobile:justify-center max-mobile:items-center max-mobile:flex-col  gap-14 mx-4 my-8'>
           {
-              [...coffeeHotProducts].map((product, index) => {
+              coffeeHotProducts.length > 0 && coffeeHotProducts.map((product) => {
           return (
-            <div key={index}>
+            <div key={product.id}>
               <CardHotCoffeeProducts product={product} />
                 </div>
           )

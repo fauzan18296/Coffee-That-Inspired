@@ -1,12 +1,13 @@
 import axios from 'axios'
-const CoffeeProduct = (callback, signal, typeMenu) => {
-  axios.get(`https://api.sampleapis.com/coffee/${ typeMenu}`, { signal })
-    .then((res) => {
-   callback(res.data)
-    })
-    .catch((err) => {
-    console.log(err.message)
-  })
+const CoffeeProduct = async (signal, typeMenu) => {
+  try {
+    const coffeeApi = await axios.get(`https://api.sampleapis.com/coffee/${typeMenu}`, { signal })
+    const response = coffeeApi
+    return response.data
+  }
+  catch (error) { 
+    console.error('Failed for fetching coffee data API:', error)
+  }
 }
 
 export default CoffeeProduct

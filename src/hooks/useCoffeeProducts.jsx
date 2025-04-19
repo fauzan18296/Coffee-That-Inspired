@@ -9,15 +9,23 @@ export const useCoffeeProducts = () => {
     const signal = controller.signal
 
     // API Menu Coffee Hot
-    CoffeeProduct((data) => {
-      setCoffeeHotProducts(data)
-      console.log(data)
-    }, signal, 'hot')
+    CoffeeProduct(signal, 'hot')
+      .then((data) => {
+        setCoffeeHotProducts(data || [])
+         console.log(data)
+    })
+      .catch((err) => {
+      console.error(err)
+    })
 
     // API Menu Coffee Ice
-    CoffeeProduct((data) => { 
-      setCoffeeIceProducts(data)
-    }, signal, 'iced')
+    CoffeeProduct(signal, 'iced')
+      .then((data) => {
+        setCoffeeIceProducts(data || [])
+      })
+        .catch((err) => {
+      console.error(err)
+    })
     
     return () => {
       controller.abort()
