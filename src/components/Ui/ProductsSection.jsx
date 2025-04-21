@@ -1,5 +1,8 @@
 import { useCoffeeProducts } from '../../hooks/useCoffeeProducts'
-import { CardIceCoffeeProducts } from '../Element/Mappings/CardIceCoffeeProducts'
+import { Suspense, lazy } from 'react'
+import Loader from './Loader'
+
+const CardIceCoffeeProducts = lazy(() => import('../Element/Mappings/CardIceCoffeeProducts'))
 
 const ProductsSection = () => {
   const { coffeeIceProducts } = useCoffeeProducts()
@@ -15,7 +18,9 @@ const ProductsSection = () => {
             coffeeIceProducts.length > 0 && coffeeIceProducts.map((product) => {
             return (
               <div key={product.id}>
-                <CardIceCoffeeProducts product={product} />
+                <Suspense fallback={<Loader />}>
+                  <CardIceCoffeeProducts product={product} />
+                  </Suspense>
               </div>
             )
           })}

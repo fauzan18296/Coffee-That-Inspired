@@ -1,7 +1,10 @@
 import AboutImg from '../../assets/Img/AboutSectionImage/aboutImg.jpg'
 import Image from './Image'
 import { useCoffeeProducts } from '../../hooks/useCoffeeProducts'
-import { CardHotCoffeeProducts } from '../Element/Mappings/CardHotCoffeeProducts'
+import Loader from './Loader'
+import { Suspense, lazy } from 'react'
+
+const CardHotCoffeeProducts  = lazy(() => import('../Element/Mappings/CardHotCoffeeProducts'))
 
 const AboutSection = () => {
   const { coffeeHotProducts } = useCoffeeProducts()
@@ -24,7 +27,9 @@ const AboutSection = () => {
               coffeeHotProducts.length > 0 && coffeeHotProducts.map((product) => {
           return (
             <div key={product.id}>
+              <Suspense fallback={<Loader />}>
               <CardHotCoffeeProducts product={product} />
+              </Suspense>
                 </div>
           )
         })}

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 //TODO: Untuk Membuat Cart Product
 import { CartContext } from '../../../context/CartContext'
 
-export const CardIceCoffeeProducts = ({ product }) => {
+const CardIceCoffeeProducts = ({ product }) => {
   const { darkMode } = useContext(DarkModeContext)
   const { dispatch } = useContext(CartContext)
   
@@ -34,3 +34,4 @@ export const CardIceCoffeeProducts = ({ product }) => {
 CardIceCoffeeProducts.propTypes = {
   product: PropTypes.object.isRequired
 }
+export default CardIceCoffeeProducts

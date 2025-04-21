@@ -3,7 +3,7 @@ import { DarkModeContext } from '../../../context/DarkMode'
 import Image from '../../Ui/Image'
 import PropTypes from 'prop-types'
 
-export const CardHotCoffeeProducts = ({ product }) => {
+const CardHotCoffeeProducts = ({ product }) => {
     const { darkMode } = useContext(DarkModeContext)
   return (
    <div className={`flex  rounded-lg shadow-lg size-full justify-center items-center flex-col ${darkMode && 'bg-primary text-white' || 'bg-white'}`}>
@@ -17,3 +17,4 @@ export const CardHotCoffeeProducts = ({ product }) => {
 CardHotCoffeeProducts.propTypes = {
   product: PropTypes.object.isRequired
 }
+export default CardHotCoffeeProducts
