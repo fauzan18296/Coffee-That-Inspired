@@ -29,7 +29,7 @@ const Header = () => {
         </Link>
        </div>
       <Navbar>
-        <div id='menuNav' className={`md:flex  md:static md:mx-auto gap-5  md:items-center md:justify-center container absolute max-mobile:h-screen
+        <div id='menuNav' className={`md:flex  md:static md:mx-auto gap-5  md:items-center md:justify-center container absolute max-mobile:h-dvh
         max-mobile:top-full
         transition-transition duration-100 delay-75 ease-in-out
       ${!isOpen ? "max-mobile:-left-full" : "max-mobile:left-0"} 

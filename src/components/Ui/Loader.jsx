@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 const Loader = ({ children }) => {
   return (
     <SkeletonTheme baseColor='#5F5F5F' highlightColor='#444'>
-    <Skeleton className='block rounded-lg mb-5 mx-auto' count={1000} height={400} width={330}>
+    <Skeleton className='block rounded-lg mb-5 mx-auto' duration={2} height={400} width={330}>
       {children}
       </Skeleton>
       </SkeletonTheme>
