@@ -4,6 +4,7 @@ import CoffeeProduct from '../services/api/CoffeeProduct.service'
 export const useCoffeeProducts = () => {
   const [coffeeHotProducts, setCoffeeHotProducts] = useState([])
   const [coffeeIceProducts, setCoffeeIceProducts] = useState([])
+
   useEffect(() => {
     const controller = new AbortController()
     const signal = controller.signal
@@ -25,7 +26,8 @@ export const useCoffeeProducts = () => {
       })
         .catch((err) => {
       console.error(err)
-    })
+        })
+    
     
     return () => {
       controller.abort()
@@ -33,6 +35,7 @@ export const useCoffeeProducts = () => {
     }
    }, [])
   return {
-    coffeeHotProducts, setCoffeeHotProducts, coffeeIceProducts, setCoffeeIceProducts
+    coffeeHotProducts, setCoffeeHotProducts,
+    coffeeIceProducts, setCoffeeIceProducts
   }
 }

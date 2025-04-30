@@ -34,10 +34,11 @@ const Header = () => {
         transition-transition duration-100 delay-75 ease-in-out
       ${!isOpen ? "max-mobile:-left-full" : "max-mobile:left-0"} 
       ${darkMode && 'max-mobile:bg-neutral-900 text-white' || 'max-mobile:bg-white' }
-       max-mobile:w-3/6  max-mobile:text-center max-mobile:flex max-mobile:flex-col max-mobile:justify-evenly max-mobile:text-lg max-mobile:shadow-md`}>
+       max-mobile:w-3/6  max-mobile:text-center max-mobile:flex max-mobile:flex-col max-mobile:justify-center max-mobile:gap-y-20 max-mobile:text-lg max-mobile:shadow-md`}>
          <Link to="/about"><span className="text-primary">About</span></Link>
               <Link to="/products" className="hover:text-primary">Product</Link>
           <Link to="/contact" className="hover:text-primary">Contact</Link>
+  
       <div className='flex md:hidden md:static flex-row-reverse gap-2 justify-center'>
       {/* Icon Tampilan Mobile */}
       <Button classname='hover:text-primary' onClick={() => setDarkMode(!darkMode)}>
@@ -51,8 +52,8 @@ const Header = () => {
         <Link to="/carts">
           <ShoppingCart size={22} />
         <div className={`${cart == 0 ?'hidden' : 'bg-primary'  } text-white rounded-full text-sm text-bold shadow-md w-5 absolute ms-4 bottom-5`}>{totalItemInCart}</div>
-        </Link>
-      </Button>
+          </Link>
+        </Button>
     </header>
   )
 }

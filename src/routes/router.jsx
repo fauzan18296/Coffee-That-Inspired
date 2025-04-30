@@ -26,7 +26,7 @@ export const Router = () => {
     {
       path: '/contact',
       element: <Contact />
-    }
+    },
   ])
     return (
       <RouterProvider router={Route} />
