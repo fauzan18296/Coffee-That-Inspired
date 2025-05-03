@@ -17,9 +17,9 @@ export default {
       fontFamily: {
         Roboto: ["Roboto"],
         Poppins: ["Poppins"],
+      },
       }
     },
-  },
   plugins: [],
 }
 

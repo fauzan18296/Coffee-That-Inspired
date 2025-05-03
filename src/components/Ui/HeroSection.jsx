@@ -3,13 +3,13 @@ import HeroImg from '../../assets/Img/HeroSectionImage/coffee-time.avif'
 
 const HeroSection = () => {
   return (
-    <div className={`container flex justify-around max-tablet:justify-evenly  items-center min-h-dvh w-full mx-auto max-mobile:flex-col`
+    <div className={`container flex justify-around max-tablet:justify-evenly  items-center min-h-dvh w-full mx-auto max-mobile:flex-col overflow-y-hidden`
 }>
-    <div className='text-balance mx-6'>
+    <div className='text-balance mx-6 animate__animated animate__backInDown'>
         <h1 className='text-3xl max-tablet:text-xl font-bold tracking-wider font-Poppins'>Welcome To <span className='text-primary'>Coffee Inspired,</span></h1>
         <p className='tracking-wide text-2xl max-tablet:text-base'>Discover the perfect blend of aroma and taste in every sip. Let our coffee awaken your senses and spark your inspiration, cup after cup.</p>
           </div>
-      <Image classname='mx-7 size-72 max-mobile:size-64' 
+      <Image classname='mx-7 animate__animated animate__backInUp animate__delay-1s  size-72 max-mobile:size-64' 
         image={HeroImg} alt="coffee"></Image>
         </div>
   )
